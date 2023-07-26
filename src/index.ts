@@ -1,61 +1,64 @@
-// Day 3 - Exercise 1
-
-// let pi = 3.14159;
-
-// function multiPi(pi: number) {
-//     let tau = pi * 2;
-//     console.log(`${tau} is ${pi} times two.`);
+// Day 5 Exercise 1
+// interface CartItem {
+//   id: number;
+//   title: string;
+//   variantId?: number;
 // }
-// multiPi(pi)
 
-// Day 3 - Exercise 2
+// function createCartItem(item: CartItem) {
+//   console.log(`Adding "${item.title}" to the cart!`);
+// }
+// const shoe = { id: 1, title: "shoes" };
+// createCartItem(shoe);
 
-// let pie: string
-// pie = 'blueberry'
+// Day 5 Exercise 2
+// interface Person {
+//   name: string;
+//   age: number;
+// }
 
-// console.log(`I like to eat ${pie}-flavored pie.`)
+// class Person implements Person {
+//   constructor(name: string, age: number) {}
+//   present() {
+//     console.log(`${this.name} is ${this.age} years old.`);
+//   }
+// }
+// const jane = new Person("Jane", 34);
+// jane.present();
 
-// Day 3 - Exercise 3
+// Day 5 Exercise 3
+// class MC {
+//   greet(event: string = "party"): string {
+//     return `Welcome to the ${event}`;
+//   }
+// }
+// const mc = new MC();
+// console.log(mc.greet("show"));
 
-// let isDouglas: boolean
-// isDouglas = true
-// console.log(`${isDouglas ? 'Oh, Hi Douglas' : 'Who are you?'}`)
+// Day 5 Exercise 4
+// class Employee {
+//   constructor(public title: string, public salary: number) {} // When a parameter is defined as public, it´s already assigned
+// }
 
-// Day 3 - Exercise 4
+// const employee = new Employee("Engineer", 10000);
+// console.log(
+//   `The employee's title is "${employee.title}" and they earn $ "${employee.salary}"`
+// );
 
-// const integer: number = 6;
-// const float: number = 6.66;
-// const hex: number = 0xf00d;
-// const binary: number = 0b1010011010;
-// const octal: number = 0o744;
-// const negZero: number = -0;
-// const actuallyNumber: number = NaN;
-// const largestNumber: number = Number.MAX_VALUE;
-// const mostBiglyNumber: number = Infinity;
+// Day 5 Exercise 5
+interface UserSchema {
+  id: number;
+  name: string;
+}
 
-// const members: number[] = [
-//     integer,
-//     float,
-//     hex,
-//     binary,
-//     octal,
-//     negZero,
-//     actuallyNumber,
-//     largestNumber,
-//     mostBiglyNumber
-// ];
+class User implements UserSchema {
+  constructor(public name: string, readonly id = 5) {} // Readonly prevents a variable from got its values assigned outside the class
+}
 
-// members[0] = Number('12345');
+const user = new User("Dog", 1);
+console.log(user.id);
 
-// console.log(members);
+user.name = "Harold"; // Can change
+// user.id = 5; //Can´t change
 
-// Day 3 - Exercise 5
-
-// const sequence: number[] = Array.from(Array(10).keys());
-// const animals: string[] = ['pangolin', 'aardvark', 'echidna', 'binturong'];
-// // const stringsAndNumbers: [number, string, number, string, number, string] = [1, 'one', 2, 'two', 3, 'three'];
-// const stringsAndNumbers: (number | string)[] = [1, 'one', 2, 'two', 3, 'three'];
-// const allMyArrays: (string | number)[][] = [sequence, animals, stringsAndNumbers];
-
-// console.log(allMyArrays);
-
+console.log(`user`, user);

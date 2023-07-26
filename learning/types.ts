@@ -78,7 +78,10 @@ Unknown type represents values that are of an unknown type at compile-time. Vari
 //console.log(generateError("App crashed unexpectedly", 500))
 //The "never" type in TypeScript is used to represent situations where a value never occurs, either as a return type of a function or as a type in a union to indicate that there are no additional valid values.
 
-var arr = [[1, 2, 3], ['a', 'b', 'c']]
+var arr = [
+  [1, 2, 3],
+  ["a", "b", "c"],
+];
 
 // for (let index = 0; index <= arr.length; index++) {
 //     const element = arr[0][index];
@@ -86,21 +89,21 @@ var arr = [[1, 2, 3], ['a', 'b', 'c']]
 //     console.log(arr[1][index]);
 // }
 
-// Alias 
+// Alias
 type Users = {
-    firstName: string,
-    lastName: string,
-    age: number,
-    gender: string,
-    role: string
-}
+  firstName: string;
+  lastName: string;
+  age: number;
+  gender: string;
+  role: string;
+};
 const user: Users = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 30,
-    gender: "Male",
-    role: "Admin"
-}
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  gender: "Male",
+  role: "Admin",
+};
 // console.log(user)
 
 //Union
@@ -119,38 +122,40 @@ const user: Users = {
 
 //Literals
 // Specify a range of values to a variable
-let price: number //Normal way to use a variable
-let prices: 10 | 20 | 30
-prices = 10
-prices = 20
-prices = 30
+let price: number; //Normal way to use a variable
+let prices: 10 | 20 | 30;
+prices = 10;
+prices = 20;
+prices = 30;
 // prices = 12 //Error
 //Also can be used to strings
-let roles: 'Admin' | 'Dev' | 'QA'
-roles = 'Admin'
-roles = 'Dev'
-roles = 'QA'
+let roles: "Admin" | "Dev" | "QA";
+roles = "Admin";
+roles = "Dev";
+roles = "QA";
 //roles = 'Tester'//Error
 
 //Intersection
-
+// Is possible to intersect 2 objects
 type User = {
-    firstName: string,
-    age: number,
-    role: string
-}
+  firstName: string;
+  age: number;
+  role: string;
+};
 
 type JobRole = {
-    title: string,
-    salary: number
-}
+  title: string;
+  salary: number;
+};
 
-type Employee = User & JobRole
+type Employee = User & JobRole;
 
 const employee: Employee = {
-    firstName: "John",
-    age: 30,
-    role: "Admin",
-    title: "Software Engineer",
-    salary: 1000
-}
+  firstName: "John",
+  age: 30,
+  role: "Admin",
+  title: "Software Engineer",
+  salary: 1000,
+};
+
+// console.log(employee);
